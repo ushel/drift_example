@@ -9,17 +9,17 @@ stages:
       size: 31509964
     - path: drift_detector.py
       hash: md5
-      md5: 06dab3eff6a1b209e5ead4cc8fd77dab
-      size: 1138
+      md5: b30c3c9d98f1924ee7cc6c8b950d4811
+      size: 1149
     outs:
     - path: drift_detected.txt
       hash: md5
-      md5: 3d46d5c45b46d1606c8de5649cc53697
-      size: 10
+      md5: 84623be4539bb0c6e33279c87efd6c24
+      size: 16
     - path: drift_report.json
       hash: md5
-      md5: 51d2667372d2442298e42b3419614a2a
-      size: 5629
+      md5: 1cd17834390832a46d823a48e3401e41
+      size: 5483
   train_model:
     cmd: python run_if_drift.py
     deps:

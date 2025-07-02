@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  prometheus:
+    image: prom/prometheus
+    container_name: prometheus
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9000:9090"
+
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+      - GF_SMTP_ENABLED=true
+      - GF_SMTP_HOST=smtp.gmail.com:587
+      - GF_SMTP_USER=utkarsh.shelke03@gmail.com
+      - GF_SMTP_PASSWORD= wxis qojt xohj zkxg
+      - GF_SMTP_FROM_ADDRESS=utkarsh.shelke03@gmail.com
+      - GF_SMTP_SKIP_VERIFY=true
+    volumes:
+      - grafana-storage:/var/lib/grafana
+      - ./grafana.ini:/etc/grafana/grafana.ini
+    ports:
+      - "3000:3000"
+
+volumes:
+  grafana-storage:

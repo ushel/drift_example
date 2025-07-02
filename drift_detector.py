@@ -5,7 +5,7 @@ import os
 from drift_detect import detect_drift  # Make sure this is in your working directory
 
 # Load data
-df = pd.read_csv("Data/Dataset.csv", low_memory=False)
+df = pd.read_csv("Data/Dataset_with_drift.csv", low_memory=False)
 df = df[df["Default"].notnull()]
 
 # Split
