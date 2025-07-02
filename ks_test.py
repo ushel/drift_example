@@ -21,4 +21,4 @@ report.run(reference_data=reference_data, current_data=current_data)
 
 # Save the report as HTML
 report.save_html("evidently_drift_report.html")
-print("✅ Drift report saved as evidently_drift_report.html")
+print("Drift report saved as evidently_drift_report.html")

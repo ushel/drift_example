@@ -1,0 +1,42 @@
+schema: '2.0'
+stages:
+  detect_drift:
+    cmd: python drift_detector.py
+    deps:
+    - path: Data/Dataset_with_drift.csv
+      hash: md5
+      md5: 87cebc05588689097640d9dd7f99e9ea
+      size: 31509964
+    - path: drift_detector.py
+      hash: md5
+      md5: 06dab3eff6a1b209e5ead4cc8fd77dab
+      size: 1138
+    outs:
+    - path: drift_detected.txt
+      hash: md5
+      md5: 3d46d5c45b46d1606c8de5649cc53697
+      size: 10
+    - path: drift_report.json
+      hash: md5
+      md5: 51d2667372d2442298e42b3419614a2a
+      size: 5629
+  train_model:
+    cmd: python run_if_drift.py
+    deps:
+    - path: drift_detected.txt
+      hash: md5
+      md5: 3d46d5c45b46d1606c8de5649cc53697
+      size: 10
+    - path: main.py
+      hash: md5
+      md5: 1673f361cdb575308728f20a0635aa52
+      size: 6396
+    - path: run_if_drift.py
+      hash: md5
+      md5: c6c2fa190fd930918d928b0cc96cff1b
+      size: 678
+    outs:
+    - path: Data/outputs/model.pkl
+      hash: md5
+      md5: de087e41771f29ab894ac75e409989b4
+      size: 2219977

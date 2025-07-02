@@ -1,0 +1,19 @@
+stages:
+  detect_drift:
+    cmd: python drift_detector.py
+    deps:
+      - Data/Dataset_with_drift.csv
+      - drift_detector.py
+    outs:
+      - drift_detected.txt
+      - drift_report.json
+
+  train_model:
+    cmd: python run_if_drift.py
+    deps:
+      - drift_detected.txt
+      - main.py
+      - run_if_drift.py
+    outs:
+      - Data/outputs/model.pkl
+

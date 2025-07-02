@@ -32,4 +32,4 @@ drifted_df = pd.concat([reference_data, current_data], axis=0).reset_index(drop=
 
 # Save the modified dataset
 drifted_df.to_csv("Dataset_with_drift.csv", index=False)
-print("✅ Drifted dataset saved as Dataset_with_drift.csv")
+print("Drifted dataset saved as Dataset_with_drift.csv")
